@@ -27,6 +27,6 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Mapping files -->
-        <mapping class="hr.java.hibernate.transactions.model.Account"/>
+        <mapping class="org.example.model.Account"/>
     </session-factory>
 </hibernate-configuration>
