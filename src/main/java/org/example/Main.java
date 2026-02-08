@@ -44,9 +44,14 @@ public class Main {
 
     public static void main(String[] args) {
 
+        try {
         Long acc1 = createAccount("Otp", new BigDecimal("15000"));
         Long acc2 = createAccount("Josip", new BigDecimal("2340"));
         Long acc3 = createAccount("Biznis", new BigDecimal("79487"));
+
+        chkBalance("Otp");
+        chkBalance("Josip");
+        chkBalance("Biznis");
 
         transferFunds("Otp", "Josip", BigDecimal.valueOf(14000));
         transferFunds("Biznis", "Josip", BigDecimal.valueOf(80000));
@@ -54,7 +59,10 @@ public class Main {
 
         chkBalance("Josip");
 
-    }
+    } finally {
+            HibernateUtil.shutdown();
+        }
+        }
 
 
     public static Long createAccount(String username, BigDecimal initialBalance) {
